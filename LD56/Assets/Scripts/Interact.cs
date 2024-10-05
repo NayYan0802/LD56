@@ -5,12 +5,11 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     [HideInInspector] public IInteractable interactTarget;
-
     public float interactCheckRange = 0.5f;
-
     private Collider2D[] overlapResults = new Collider2D[8];
-
     private List<IInteractable> interactablesInRange = new();
+
+    public Transform pickOffset;
     private void Update()
     {
         interactablesInRange.Clear();
@@ -58,5 +57,19 @@ public class Interact : MonoBehaviour
     {
         if (interactTarget != null)
             interactTarget.Interact(new InteractArgs(this.gameObject));
+    }
+
+    public PickableObject InteractWithPickableObject(Player player)
+    {
+        if (interactTarget != null)
+            return (interactTarget as InteractableObject).GetComponent<PickableObject>().PickUp(player);
+        else
+            return null;
+    }
+
+    public void PutDownObject()
+    {
+        if (interactTarget != null)
+            (interactTarget as InteractableObject).GetComponent<PickableObject>().PutDown();
     }
 }

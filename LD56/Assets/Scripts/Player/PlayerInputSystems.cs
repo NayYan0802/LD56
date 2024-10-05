@@ -10,8 +10,16 @@ public class PlayerInputSystems : MonoBehaviour
 	public float moveSpeed;
 	public bool allowMoveVertical;
 	public bool m_pickUp;
+	private Player player;
+	private PickableObject currentPickedObject;
 
-	public void OnMove(InputValue value)
+    private void Start()
+    {
+		m_pickUp = false;
+		player = this.GetComponent<Player>();
+    }
+
+    public void OnMove(InputValue value)
 	{
 		moveInput = value.Get<Vector2>();
 	}
@@ -23,13 +31,16 @@ public class PlayerInputSystems : MonoBehaviour
 
 	public void OnPick()
 	{
-		if (m_pickUp)
+		if (!m_pickUp)
 		{
-			//pick up item
+			currentPickedObject = GetComponent<Interact>().InteractWithPickableObject(player);
+			m_pickUp = true;
 		}
 		else
 		{
 			//put down item
+			GetComponent<Interact>().PutDownObject();
+			m_pickUp = false;
 		}
 	}
 

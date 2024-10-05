@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+	public Transform pickOffset;
     [SerializeField] PlayerStateMachine m_playerStateMachine;
 
 	private void OnTriggerEnter2D(Collider2D collision)

@@ -33,11 +33,6 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         {
             Push();
         }
-
-        if (pick)
-        {
-
-        }
         return false;
     }
 

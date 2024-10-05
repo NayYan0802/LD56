@@ -21,4 +21,5 @@ public class PlayerStateMachine : StateMachine
     public void ChangeToDefaultState() { SwitchToState(GetStateByType<PlayerState_Default>()); }
     public void ChangeToHideState() { SwitchToState(GetStateByType<PlayerState_Hide>()); }
     public void ChangeToPickUpState() { SwitchToState(GetStateByType<PlayerState_PickUp>()); }
+    public void ChangeToLadderState() { SwitchToState(GetStateByType<PlayerState_Ladder>()); }
 }

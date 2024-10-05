@@ -15,11 +15,14 @@ public class InteractableObject : MonoBehaviour ,IInteractable
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
+    private Collider2D m_collider;
+    public LayerMask groundLayer;
 
     private void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
+        m_collider = this.GetComponent<Collider2D>();
     }
 
     public int GetInteractPriority()
@@ -40,6 +43,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     {
         spriteRenderer.sortingOrder = -1;
         rb.gravityScale = 1;
+        m_collider.excludeLayers += groundLayer;
     }
 
     public void OnTargetedEnter()

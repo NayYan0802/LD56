@@ -12,12 +12,15 @@ public class PlayerInputSystems : MonoBehaviour
 	public bool m_pickUp;
 	private Player player;
 	private PickableObject currentPickedObject;
+	PlayerStateMachine m_playerStateMachine;
 
-    private void Start()
+	private void Start()
     {
 		m_pickUp = false;
 		player = this.GetComponent<Player>();
-    }
+		m_playerStateMachine = PlayerStateMachine.Instance;
+
+	}
 
     public void OnMove(InputValue value)
 	{
@@ -34,12 +37,14 @@ public class PlayerInputSystems : MonoBehaviour
 		if (!m_pickUp)
 		{
 			currentPickedObject = GetComponent<Interact>().InteractWithPickableObject(player);
+			m_playerStateMachine.ChangeToPickUpState();
 			m_pickUp = true;
 		}
 		else
 		{
 			//put down item
 			GetComponent<Interact>().PutDownObject();
+			m_playerStateMachine.ChangeToDefaultState();
 			m_pickUp = false;
 		}
 	}
@@ -56,14 +61,14 @@ public class PlayerInputSystems : MonoBehaviour
 		{
 			move = new Vector3(moveInput.x, 0, 0);
 		}
-		transform.Translate(move * moveSpeed * Time.deltaTime);
+		GetComponent<Rigidbody2D>().velocity = move * moveSpeed;
 	}
 
 	public void ToggleGravity(bool enable)
 	{
 		if (enable)
 		{
-			GetComponent<Rigidbody2D>().gravityScale = 1f;
+			GetComponent<Rigidbody2D>().gravityScale = Constant.gravityScale;
 		}
 		else
 		{

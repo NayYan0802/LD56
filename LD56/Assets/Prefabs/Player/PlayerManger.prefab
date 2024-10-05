@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2500455145655005006}
   - component: {fileID: 641222756036290925}
   - component: {fileID: 4237862447066323833}
+  - component: {fileID: 2053748612404802033}
   m_Layer: 0
   m_Name: PlayerStates
   m_TagString: Untagged
@@ -84,6 +85,23 @@ MonoBehaviour:
   owner: {fileID: 7206300737254672436}
   m_playerInputSystems: {fileID: 0}
   m_pickUpSpeed: 3
+--- !u!114 &2053748612404802033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292602384430533069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acdee49761c931418bc0711bedad759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internalName: Ladder
+  activeState: 0
+  owner: {fileID: 7206300737254672436}
+  m_playerInputSystems: {fileID: 0}
+  m_ladderSpeed: 3
 --- !u!1 &4317026069074326169
 GameObject:
   m_ObjectHideFlags: 0

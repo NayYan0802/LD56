@@ -6,7 +6,13 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
 	public Transform pickOffset;
-    [SerializeField] PlayerStateMachine m_playerStateMachine;
+    PlayerStateMachine m_playerStateMachine;
+
+	private void Start()
+	{
+		GetComponent<Rigidbody2D>().gravityScale = Constant.gravityScale;
+		m_playerStateMachine = PlayerStateMachine.Instance;
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{

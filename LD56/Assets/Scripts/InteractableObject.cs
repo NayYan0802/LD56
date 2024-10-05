@@ -6,23 +6,30 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour ,IInteractable
 {
+    public enum InteractionType
+    {
+        Push, Hide, Turn, Trigger
+    }
     public int interactPriority = 0;
 
     public int frightMeterInRange;
     public int frightMeterOutRange;
 
-    [FoldoutGroup("InteractionType")]public bool push, pick, hide, turn, trigger;
+    public InteractionType type;
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Collider2D m_collider;
     public LayerMask groundLayer;
 
+    private bool isHiding;
+
     private void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
+        isHiding = false;
     }
 
     public int GetInteractPriority()
@@ -32,18 +39,31 @@ public class InteractableObject : MonoBehaviour ,IInteractable
 
     public bool Interact(InteractArgs args)
     {
-        if (push)
+        switch (type)
         {
-            Push();
-        }
-        return false;
-    }
+            case InteractionType.Push:
+                spriteRenderer.sortingOrder = -1;
+                rb.gravityScale = 1;
+                m_collider.excludeLayers += groundLayer;
+                break;
+            case InteractionType.Hide:
+                if (!isHiding)
+                {
+                    spriteRenderer.sortingOrder = 6;
+                    PlayerStateMachine.Instance.ChangeToHideState();
+                    isHiding = true;
+                }
+                else
+                {
+                    spriteRenderer.sortingOrder = 0;
+                    PlayerStateMachine.Instance.SwitchToPreviousState();
+                    isHiding = false;
+                }
+                break;
 
-    private void Push()
-    {
-        spriteRenderer.sortingOrder = -1;
-        rb.gravityScale = 1;
-        m_collider.excludeLayers += groundLayer;
+        }
+        
+        return false;
     }
 
     public void OnTargetedEnter()

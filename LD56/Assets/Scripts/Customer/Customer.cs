@@ -88,7 +88,7 @@ public class Customer : MonoBehaviour
 			}
 			t++;
 			stayT++;
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(1f);
 		}
 		MoveTo(ExitPos);
 	}

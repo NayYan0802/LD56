@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3962012474385026367}
-  - {fileID: 8038929258313248494}
   m_Father: {fileID: 4055636513810164815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631883265677174261
@@ -554,6 +553,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8038929258313248494}
   - {fileID: 3576786750412767800}
   - {fileID: 7393025521828309678}
   m_Father: {fileID: 0}
@@ -631,6 +631,8 @@ MonoBehaviour:
   SnackPos: {x: 0, y: 0, z: 5}
   ToolsPos: {x: 26, y: 0, z: 5}
   ExitPos: {x: 2.3, y: 0, z: 50}
+  exitScale: 0
+  shelfScale: 0
   PosOffsetx: 9
   StayTimeMin: 10
   StayTimeMax: 15
@@ -666,12 +668,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6968250658222375185}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.66, y: 15.34, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.013333, y: 5.113334, z: -1.6666669}
+  m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3576786750412767800}
+  m_Father: {fileID: 4055636513810164815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &4732167961935854109
 SpriteMask:

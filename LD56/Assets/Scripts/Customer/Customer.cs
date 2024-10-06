@@ -18,6 +18,7 @@ public class Customer : MonoBehaviour
 	[SerializeField, Tooltip("percentage of possibility customer go to his favor spot, only 0-1, percentage for other two area is equal")] float favorSpotPercentage = 0.7f;
 	[SerializeField] CustomerType type;
 	[SerializeField] Vector3 GroceriesPos, SnackPos, ToolsPos, ExitPos;
+	[SerializeField] float exitScale, shelfScale;
 	[SerializeField] float PosOffsetx;
 	[SerializeField] int StayTimeMin, StayTimeMax;
 	[SerializeField] Sprite frightened1, frightened2, frightened3;
@@ -108,8 +109,21 @@ public class Customer : MonoBehaviour
 		move.DestinationPosition = nextDes;
 		move.InitialPosition = initialPos;
 		move.SetFeedbackDuration(timeUsed);
+		MMF_Scale scale = moveFeedback.GetFeedbackOfType<MMF_Scale>();
+		scale.Active = false;
+		if (initialPos == ExitPos)
+		{
+			scale.Active = true;
+			scale.AnimateScaleDuration = timeUsed;
+			scale.RemapCurveZero = exitScale;
+			scale.RemapCurveOne = shelfScale;
+		}
 		if (nextDes == ExitPos)
 		{
+			scale.Active = true;
+			scale.AnimateScaleDuration = timeUsed;
+			scale.RemapCurveZero = shelfScale;
+			scale.RemapCurveOne = exitScale;
 			moveFeedback.Events.OnComplete.AddListener(SelfDestory);
 		}
 		moveFeedback.PlayFeedbacks();

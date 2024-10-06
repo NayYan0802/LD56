@@ -26,6 +26,7 @@ public class CustomerVision : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        player = FindObjectOfType<Player>().transform;
     }
 
     [Button]
@@ -33,6 +34,7 @@ public class CustomerVision : MonoBehaviour
     {
         if (!isMoving)
         {
+            GetComponent<SpriteMask>().enabled = true;
             StartCoroutine(SwingCoroutine());
         }
     }
@@ -132,6 +134,7 @@ public class CustomerVision : MonoBehaviour
 
     public void StopSwinging()
     {
+        GetComponent<SpriteMask>().enabled = false;
         StopAllCoroutines();
         isMoving = false;
         isSlidingOut = false;

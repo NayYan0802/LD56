@@ -19,8 +19,14 @@ public class GameManagement : MonoBehaviour
 	public int border1;
 	public int border2;
 
+	private void Awake()
+	{
+		Instance = this;
+	}
+
 	private void Start()
 	{
+		
 		StartCoroutine(CountDown());
 	}
 

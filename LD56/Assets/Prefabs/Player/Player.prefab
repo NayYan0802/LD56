@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickOffset: {fileID: 4626068879517325277}
+  inspectMax: 5
 --- !u!114 &1073459680311434009
 MonoBehaviour:
   m_ObjectHideFlags: 0

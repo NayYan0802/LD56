@@ -10,19 +10,19 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     {
         Push, Hide, Turn, Trigger
     }
-    public int interactPriority = 0;
-
-    public int frightMeterInRange;
-    public int frightMeterOutRange;
-
-    public InteractionType type;
+    [FoldoutGroup("Interaction")] public int interactPriority = 0;
+    [FoldoutGroup("Interaction")] public InteractionType type;
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Collider2D m_collider;
-    public LayerMask groundLayer;
 
+    [FoldoutGroup("Interaction")] public LayerMask groundLayer;
+    [FoldoutGroup("Interaction")] public float fallTime = 1;
     private bool isHiding;
+
+    public int frightMeterInRange;
+    public int frightMeterOutRange;
 
     private void Start()
     {
@@ -44,7 +44,9 @@ public class InteractableObject : MonoBehaviour ,IInteractable
             case InteractionType.Push:
                 spriteRenderer.sortingOrder = -1;
                 rb.gravityScale = 1;
-                m_collider.excludeLayers += groundLayer;
+                m_collider.excludeLayers = ~0; // Everything
+
+                StartCoroutine(Fall());
                 break;
             case InteractionType.Hide:
                 if (!isHiding)
@@ -64,6 +66,14 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         }
         
         return false;
+    }
+
+    IEnumerator Fall()
+    {
+        yield return new WaitForSeconds(fallTime);
+        // Trigger fall events
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 
     public void OnTargetedEnter()

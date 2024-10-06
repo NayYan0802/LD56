@@ -59,7 +59,7 @@ public class PlayerInputSystems : MonoBehaviour
 		else
 		{
 			//put down item
-			GetComponent<Interact>().PutDownObject();
+			GetComponent<Interact>().PutDownObject(currentPickedObject);
 			m_playerStateMachine.ChangeToDefaultState();
 			m_pickUp = false;
 		}

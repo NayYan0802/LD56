@@ -1,10 +1,11 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interact : MonoBehaviour
+public class Interact : SerializedMonoBehaviour
 {
-    [HideInInspector] public IInteractable interactTarget;
+    public IInteractable interactTarget;
     public float interactCheckRange = 0.5f;
     private Collider2D[] overlapResults = new Collider2D[8];
     private List<IInteractable> interactablesInRange = new();
@@ -67,9 +68,8 @@ public class Interact : MonoBehaviour
             return null;
     }
 
-    public void PutDownObject()
+    public void PutDownObject(PickableObject currentPickedObject)
     {
-        if (interactTarget != null)
-            (interactTarget as InteractableObject).GetComponent<PickableObject>().PutDown();
+        currentPickedObject.PutDown();
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Constant
 {
-    public const float gravityScale = 9.8f; 
+    public const float gravityScale = 3f; 
 }

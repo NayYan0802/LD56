@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1367009941470337370}
   - component: {fileID: 2284451691225368234}
   - component: {fileID: 9001448116687870224}
-  - component: {fileID: 7801389475554538320}
   - component: {fileID: 6676354396393450734}
   - component: {fileID: 7894593360328720436}
   - component: {fileID: 1073459680311434009}
@@ -171,41 +170,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!58 &7801389475554538320
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885367892367517737}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &6676354396393450734
 Rigidbody2D:
   serializedVersion: 4
@@ -259,6 +223,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ebdd6f67445914cb1e0ee86cb53206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: interactTarget
+      Entry: 6
+      Data: 
   interactCheckRange: 0.5
   pickOffset: {fileID: 0}
 --- !u!1 &3211553611134465696

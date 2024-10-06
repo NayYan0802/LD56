@@ -18,6 +18,7 @@ public class PlayerInputSystems : MonoBehaviour
 	private PickableObject currentPickedObject;
 	PlayerStateMachine m_playerStateMachine;
 	Rigidbody2D m_rigidbody2D;
+	Animator animator;
 
 	private void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerInputSystems : MonoBehaviour
 		player = this.GetComponent<Player>();
 		m_playerStateMachine = PlayerStateMachine.Instance;
 		m_rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 	}
 
     public void OnMove(InputValue value)
@@ -39,9 +41,10 @@ public class PlayerInputSystems : MonoBehaviour
 
 	public void OnJump()
 	{
-		if (allowJump)
+		if (allowJump && !isJumping)
 		{
 			isJumping = true;
+			animator.SetTrigger("Jumping");
 			jumpOriginalHeight = player.transform.position.y;
 			//CameraManager.Instance.isFollowing = false;
 			m_rigidbody2D.velocity += new Vector2(0, jumpHeight);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using MoreMountains.Feedbacks;
 
 enum CustomerType { 
@@ -19,10 +20,11 @@ public class Customer : MonoBehaviour
 	[SerializeField] Vector3 GroceriesPos, SnackPos, ToolsPos, ExitPos;
 	[SerializeField] float PosOffsetx;
 	[SerializeField] int StayTimeMin, StayTimeMax;
+	[SerializeField] Sprite frightened1, frightened2, frightened3;
 	[SerializeField] MMF_Player moveFeedback;
 
 	public int currentZone;
-	public int scareMeter;
+	public int scareMeter = 0;
 
 	SpriteRenderer spriteRenderer;
 
@@ -34,10 +36,38 @@ public class Customer : MonoBehaviour
 		StartCoroutine(Timer());
 	}
 
+	private void Update()
+	{
+		if (transform.position.x < GameManagement.Instance.border1)
+		{
+			currentZone = 0;
+		}
+		else if (transform.position.x > GameManagement.Instance.border2)
+		{
+			currentZone = 2;
+		}
+		else
+		{
+			currentZone = 1;
+		}
+	}
+
 	public void Scared(int scareMeter)
     {
 		scareMeter += scareMeter;
-    }
+		if (scareMeter >= 10)
+		{
+			spriteRenderer.sprite = frightened1;
+		}
+		else if (scareMeter >= 20)
+		{
+			spriteRenderer.sprite = frightened2;
+		}
+		else if (scareMeter >= 30)
+		{
+			spriteRenderer.sprite = frightened3;
+		}
+	}
 
 	IEnumerator Timer()
 	{
@@ -78,6 +108,10 @@ public class Customer : MonoBehaviour
 		move.DestinationPosition = nextDes;
 		move.InitialPosition = initialPos;
 		move.SetFeedbackDuration(timeUsed);
+		if (nextDes == ExitPos)
+		{
+			moveFeedback.Events.OnComplete.AddListener(SelfDestory);
+		}
 		moveFeedback.PlayFeedbacks();
 		initialPos = nextDes;
 	}
@@ -136,5 +170,10 @@ public class Customer : MonoBehaviour
 			}
 		}
 		return groceryPos;
+	}
+
+	public void SelfDestory()
+	{
+		Destroy(gameObject);
 	}
 }

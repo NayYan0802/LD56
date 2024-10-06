@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour ,IInteractable
 {
@@ -19,6 +20,13 @@ public class InteractableObject : MonoBehaviour ,IInteractable
 
     [FoldoutGroup("Interaction")] public LayerMask groundLayer;
     [FoldoutGroup("Interaction")] public float fallTime = 1;
+
+    [FoldoutGroup("Turn")] public Animator animator;
+    [FoldoutGroup("Turn")] public bool isOn;
+
+    [FoldoutGroup("Trigger")] public UnityEvent _event;
+
+
     private bool isHiding;
 
     public int frightMeterInRange;
@@ -30,6 +38,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         rb = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
         isHiding = false;
+        animator.SetBool("IsOn", isOn);
     }
 
     public int GetInteractPriority()
@@ -37,7 +46,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         return interactPriority;
     }
 
-    public bool Interact(InteractArgs args)
+    public virtual bool Interact(InteractArgs args)
     {
         switch (type)
         {
@@ -63,8 +72,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 }
                 break;
             case InteractionType.Turn:
+                isOn = !isOn;
+                animator.SetBool("IsOn", isOn);
                 break;
             case InteractionType.Trigger:
+                _event.Invoke();
                 break;
         }
         
@@ -80,7 +92,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         Destroy(this.gameObject);
     }
 
-    private void Scared(float posX)
+    protected void Scared(float posX)
     {
         int zone;
         if (posX < GameManagement.Instance.border1)

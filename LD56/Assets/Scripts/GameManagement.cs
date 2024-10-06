@@ -15,6 +15,10 @@ public class GameManagement : MonoBehaviour
 	[SerializeField, BoxGroup("UI")] Sprite NumberMeter_Full;
 	[SerializeField, ReadOnly] private int scareNum = 0;
 	public static GameManagement Instance { get; private set; }
+
+	public int border1;
+	public int border2;
+
 	private void Start()
 	{
 		StartCoroutine(CountDown());

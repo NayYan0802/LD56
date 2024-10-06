@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour ,IInteractable
 {
-    public static int border1;
-    public static int border2;
-
     public enum InteractionType
     {
         Push, Hide, Turn, Trigger
@@ -86,11 +83,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     private void Scared(float posX)
     {
         int zone;
-        if (posX < border1)
+        if (posX < GameManagement.Instance.border1)
         {
             zone = 0;
         }
-        else if (posX > border2)
+        else if (posX > GameManagement.Instance.border2)
         {
             zone = 2;
         }

@@ -23,6 +23,10 @@ public class InteractableObject : MonoBehaviour ,IInteractable
 
     [FoldoutGroup("Turn")] public Animator animator;
     [FoldoutGroup("Turn")] public bool isOn;
+    [FoldoutGroup("Turn")] public bool hasAnimation;
+    [FoldoutGroup("Turn")] public Sprite Img_On;
+    [FoldoutGroup("Turn")] public Sprite Img_Off;
+
 
     [FoldoutGroup("Trigger")] public UnityEvent _event;
 
@@ -38,8 +42,15 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         rb = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
         isHiding = false;
-        if((animator = this.GetComponent<Animator>()) && type == InteractionType.Turn)
+        if ((animator=this.GetComponent<Animator>()) && type == InteractionType.Turn)
+        {
+            hasAnimation = true;
             animator.SetBool("IsOn", isOn);
+        }
+        else
+        {
+            hasAnimation = false;
+        }
     }
 
     public int GetInteractPriority()
@@ -74,7 +85,21 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 break;
             case InteractionType.Turn:
                 isOn = !isOn;
-                animator.SetBool("IsOn", isOn);
+                if (hasAnimation)
+                {
+                    animator.SetBool("IsOn", isOn);
+                }
+                else
+                {
+                    if (isOn)
+                    {
+                        this.spriteRenderer.sprite = Img_On;
+                    }
+                    else
+                    {
+                        this.spriteRenderer.sprite = Img_Off;
+                    }
+                }
                 break;
             case InteractionType.Trigger:
                 _event.Invoke();
@@ -131,11 +156,5 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     public void OnTargetedExit()
     {
 
-    }
-
-    public void ReverseAnimatorBoolean()
-    {
-        isOn = !isOn;
-        animator.SetBool("IsOn", isOn);
     }
 }

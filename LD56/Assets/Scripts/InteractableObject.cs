@@ -132,4 +132,10 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     {
 
     }
+
+    public void ReverseAnimatorBoolean()
+    {
+        isOn = !isOn;
+        animator.SetBool("IsOn", isOn);
+    }
 }

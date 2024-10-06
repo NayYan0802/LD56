@@ -63,9 +63,9 @@ public class Interact : SerializedMonoBehaviour
     public PickableObject InteractWithPickableObject(Player player)
     {
         if (interactTarget != null)
+            if((interactTarget as InteractableObject).GetComponent<PickableObject>())
             return (interactTarget as InteractableObject).GetComponent<PickableObject>().PickUp(player);
-        else
-            return null;
+        return null;
     }
 
     public void PutDownObject(PickableObject currentPickedObject)

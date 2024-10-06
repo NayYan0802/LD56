@@ -8,18 +8,23 @@ public class PlayerInputSystems : MonoBehaviour
 {
 	private Vector2 moveInput;
 	public float moveSpeed;
+	public float jumpHeight = 15;
 	public bool allowMoveVertical;
+	public bool allowJump;
 	public bool m_pickUp;
+	private bool isJumping;
+	private float jumpOriginalHeight;
 	private Player player;
 	private PickableObject currentPickedObject;
 	PlayerStateMachine m_playerStateMachine;
+	Rigidbody2D m_rigidbody2D;
 
 	private void Start()
     {
 		m_pickUp = false;
 		player = this.GetComponent<Player>();
 		m_playerStateMachine = PlayerStateMachine.Instance;
-
+		m_rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 
     public void OnMove(InputValue value)
@@ -30,6 +35,17 @@ public class PlayerInputSystems : MonoBehaviour
 	public void OnInteract()
 	{
 		GetComponent<Interact>().InteractWithObject();
+	}
+
+	public void OnJump()
+	{
+		if (allowJump)
+		{
+			isJumping = true;
+			jumpOriginalHeight = player.transform.position.y;
+			CameraManager.Instance.isFollowing = false;
+			m_rigidbody2D.velocity += new Vector2(0, jumpHeight);
+		}
 	}
 
 	public void OnPick()
@@ -49,30 +65,38 @@ public class PlayerInputSystems : MonoBehaviour
 		}
 	}
 
+	
+
 	private void Update()
 	{
+		if ((isJumping && player.transform.position.y <= jumpOriginalHeight && m_rigidbody2D.velocity.y < 0) || !allowJump)
+		{
+			isJumping = false;
+			CameraManager.Instance.isFollowing = true;
+		}
 		// Use the moveInput to move the player
-		Vector3 move;
+		Vector2 move;
 		if (allowMoveVertical)
 		{
-			move = new Vector3(moveInput.x, moveInput.y, 0);
+			move = new Vector2(moveInput.x, moveInput.y);
+			m_rigidbody2D.velocity = move * moveSpeed;
 		}
 		else
 		{
-			move = new Vector3(moveInput.x, 0, 0);
+			move = new Vector2(moveInput.x, 0);
+			m_rigidbody2D.velocity = new Vector2(move.x * moveSpeed, m_rigidbody2D.velocity.y);
 		}
-		GetComponent<Rigidbody2D>().velocity = move * moveSpeed;
 	}
 
 	public void ToggleGravity(bool enable)
 	{
 		if (enable)
 		{
-			GetComponent<Rigidbody2D>().gravityScale = Constant.gravityScale;
+			m_rigidbody2D.gravityScale = Constant.gravityScale;
 		}
 		else
 		{
-			GetComponent<Rigidbody2D>().gravityScale = 0;
+			m_rigidbody2D.gravityScale = 0;
 		}
 	}
 }

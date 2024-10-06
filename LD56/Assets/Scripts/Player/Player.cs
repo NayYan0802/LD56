@@ -29,4 +29,9 @@ public class Player : MonoBehaviour
 			m_playerStateMachine.ChangeToDefaultState();
 		}		
 	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		
+	}
 }

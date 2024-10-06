@@ -10,7 +10,14 @@ public class PlayerState_Default : PlayerState_Base
 
 	public override void EnterState(StateMachine stateMachineContext)
 	{
+		m_playerInputSystems.allowJump = true;
 		m_playerInputSystems.moveSpeed = m_defaultSpeed;
 		base.EnterState(stateMachineContext);
+	}
+
+	public override void ExitState(StateMachine stateMachineContext)
+	{
+		m_playerInputSystems.allowJump = false;
+		base.ExitState(stateMachineContext);
 	}
 }

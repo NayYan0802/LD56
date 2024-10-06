@@ -21,6 +21,8 @@ public class Customer : MonoBehaviour
 	[SerializeField] int StayTimeMin, StayTimeMax;
 	[SerializeField] MMF_Player moveFeedback;
 
+	public int currentZone;
+
 	SpriteRenderer spriteRenderer;
 
 	private Vector3 initialPos;

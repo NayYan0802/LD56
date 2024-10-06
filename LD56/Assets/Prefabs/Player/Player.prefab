@@ -136,7 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  jumpHeight: 15
   allowMoveVertical: 0
+  allowJump: 0
   m_pickUp: 0
 --- !u!114 &9001448116687870224
 MonoBehaviour:

@@ -22,6 +22,8 @@ public class Customer : MonoBehaviour
 	[SerializeField] MMF_Player moveFeedback;
 
 	public int currentZone;
+	public int scareMeter;
+	private Subscription<ScaredPlayer> scaredPlayerSub;
 
 	SpriteRenderer spriteRenderer;
 
@@ -31,7 +33,13 @@ public class Customer : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initialPos = ExitPos;
 		StartCoroutine(Timer());
+		scaredPlayerSub = EventBus.Subscribe<ScaredPlayer>(_Scared);
 	}
+
+	private void _Scared(ScaredPlayer scaredPlayer)
+    {
+		scareMeter -= scaredPlayer.scareMeter;
+    }
 
 	IEnumerator Timer()
 	{
@@ -131,4 +139,9 @@ public class Customer : MonoBehaviour
 		}
 		return groceryPos;
 	}
+
+    private void OnDestroy()
+    {
+		EventBus.Unsubscribe(scaredPlayerSub);
+    }
 }

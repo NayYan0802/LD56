@@ -62,7 +62,10 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                     isHiding = false;
                 }
                 break;
-
+            case InteractionType.Turn:
+                break;
+            case InteractionType.Trigger:
+                break;
         }
         
         return false;
@@ -74,6 +77,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         // Trigger fall events
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
+    }
+
+    private void Scared()
+    {
+        EventBus.Publish<ScaredPlayer>(new ScaredPlayer(frightMeterInRange));
     }
 
     public void OnTargetedEnter()

@@ -43,7 +43,7 @@ public class PlayerInputSystems : MonoBehaviour
 		{
 			isJumping = true;
 			jumpOriginalHeight = player.transform.position.y;
-			CameraManager.Instance.isFollowing = false;
+			//CameraManager.Instance.isFollowing = false;
 			m_rigidbody2D.velocity += new Vector2(0, jumpHeight);
 		}
 	}
@@ -72,7 +72,7 @@ public class PlayerInputSystems : MonoBehaviour
 		if ((isJumping && player.transform.position.y <= jumpOriginalHeight && m_rigidbody2D.velocity.y < 0) || !allowJump)
 		{
 			isJumping = false;
-			CameraManager.Instance.isFollowing = true;
+			//CameraManager.Instance.isFollowing = true;
 		}
 		// Use the moveInput to move the player
 		Vector2 move;

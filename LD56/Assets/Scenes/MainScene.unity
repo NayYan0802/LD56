@@ -667,6 +667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594079055}
   - component: {fileID: 594079057}
+  - component: {fileID: 594079058}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -683,7 +684,7 @@ Transform:
   m_GameObject: {fileID: 594079054}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.31, y: 14, z: 0}
+  m_LocalPosition: {x: -12.66, y: 15.34, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -740,6 +741,25 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &594079058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594079054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81d4a3891c328f40ad293124fa6aaf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 20376693}
+  swingDuration: 5
+  moveRange: 10
+  maxSwingTime: 7
+  playerDistanceThreshold: 10
+  distanceFromEdge: 3
+  restartDelay: 3
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

@@ -2741,6 +2741,9 @@ MonoBehaviour:
   - {fileID: 2732179252587114903}
   NumberMeter_Full: {fileID: 21300000, guid: d44bf2ce321eec841b1f59df45222428, type: 3}
   scareNum: 0
+  CustomerPrefab: {fileID: 5977024991586574505, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
+  border1: -13
+  border2: 13
 --- !u!1 &8596033957441550565
 GameObject:
   m_ObjectHideFlags: 0

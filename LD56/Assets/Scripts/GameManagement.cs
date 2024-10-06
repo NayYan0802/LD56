@@ -14,6 +14,8 @@ public class GameManagement : MonoBehaviour
 	[SerializeField, BoxGroup("UI")] Image[] PeopleIndicators;
 	[SerializeField, BoxGroup("UI")] Sprite NumberMeter_Full;
 	[SerializeField, ReadOnly] private int scareNum = 0;
+
+	[SerializeField] private GameObject CustomerPrefab;
 	public static GameManagement Instance { get; private set; }
 
 	public int border1;
@@ -49,6 +51,7 @@ public class GameManagement : MonoBehaviour
 			{
 				RoundMinute--;
 				RoundSecond = 59;
+				Instantiate(CustomerPrefab);
 			}
 			UITime.text = $"{RoundMinute} : {RoundSecond}";
 			yield return new WaitForSeconds(1f);

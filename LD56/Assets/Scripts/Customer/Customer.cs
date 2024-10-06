@@ -23,7 +23,6 @@ public class Customer : MonoBehaviour
 
 	public int currentZone;
 	public int scareMeter;
-	private Subscription<ScaredPlayer> scaredPlayerSub;
 
 	SpriteRenderer spriteRenderer;
 
@@ -33,12 +32,11 @@ public class Customer : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initialPos = ExitPos;
 		StartCoroutine(Timer());
-		scaredPlayerSub = EventBus.Subscribe<ScaredPlayer>(_Scared);
 	}
 
-	private void _Scared(ScaredPlayer scaredPlayer)
+	public void Scared(int scareMeter)
     {
-		scareMeter -= scaredPlayer.scareMeter;
+		scareMeter += scareMeter;
     }
 
 	IEnumerator Timer()
@@ -139,9 +137,4 @@ public class Customer : MonoBehaviour
 		}
 		return groceryPos;
 	}
-
-    private void OnDestroy()
-    {
-		EventBus.Unsubscribe(scaredPlayerSub);
-    }
 }

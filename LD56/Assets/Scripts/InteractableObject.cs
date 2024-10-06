@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour ,IInteractable
 {
+    public static int border1;
+    public static int border2;
+
     public enum InteractionType
     {
         Push, Hide, Turn, Trigger
@@ -75,13 +78,39 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     {
         yield return new WaitForSeconds(fallTime);
         // Trigger fall events
+        Scared(transform.position.x) ;
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 
-    private void Scared()
+    private void Scared(float posX)
     {
-        EventBus.Publish<ScaredPlayer>(new ScaredPlayer(frightMeterInRange));
+        int zone;
+        if (posX < border1)
+        {
+            zone = 0;
+        }
+        else if (posX > border2)
+        {
+            zone = 2;
+        }
+        else
+        {
+            zone = 1;
+        }
+
+        Customer[] customers = FindObjectsByType<Customer>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        foreach(var customer in customers)
+        {
+            if (customer.currentZone == zone)
+            {
+                customer.Scared(frightMeterInRange);
+            }
+            else
+            {
+                customer.Scared(frightMeterOutRange);
+            }
+        }
     }
 
     public void OnTargetedEnter()

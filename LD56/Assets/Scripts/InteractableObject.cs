@@ -38,7 +38,8 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         rb = this.GetComponent<Rigidbody2D>();
         m_collider = this.GetComponent<Collider2D>();
         isHiding = false;
-        animator.SetBool("IsOn", isOn);
+        if((animator = this.GetComponent<Animator>()) && type == InteractionType.Turn)
+            animator.SetBool("IsOn", isOn);
     }
 
     public int GetInteractPriority()

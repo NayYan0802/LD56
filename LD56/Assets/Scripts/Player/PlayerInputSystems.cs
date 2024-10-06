@@ -86,7 +86,7 @@ public class PlayerInputSystems : MonoBehaviour
 		}
 		else
 		{
-			move = new Vector2(moveInput.x, 0);
+			move = new Vector2(moveInput.x, 0).normalized;
 			m_rigidbody2D.velocity = new Vector2(move.x * moveSpeed, m_rigidbody2D.velocity.y);
 		}
 	}

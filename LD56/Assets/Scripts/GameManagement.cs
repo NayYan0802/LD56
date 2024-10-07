@@ -101,6 +101,7 @@ public class GameManagement : MonoBehaviour
 				else
 				{
 					customer.GetComponent<SpriteRenderer>().sortingOrder = i;
+					customer.transform.GetChild(3).GetComponent<SpriteRenderer>().sortingOrder = i;
 					customer.transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = i + 1;
 					break;
 				}

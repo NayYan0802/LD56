@@ -8058,10 +8058,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 785257490537987777, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
-      propertyPath: PosOffsetx
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4055636513810164815, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.2

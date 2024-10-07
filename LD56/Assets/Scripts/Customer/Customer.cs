@@ -27,6 +27,7 @@ public class Customer : MonoBehaviour
 	[SerializeField] MMF_Player moveFeedback;
 	[SerializeField] SpriteRenderer spriteRendererEye;
 	[SerializeField] GameObject eyeView;
+	[SerializeField] MMF_Player suprisefeedback;
 	public int currentZone;
 	public int m_scareMeter = 0;
 
@@ -86,7 +87,7 @@ public class Customer : MonoBehaviour
 	public void Scared(int scareMeter)
     {
 		m_scareMeter += scareMeter;
-
+		suprisefeedback.PlayFeedbacks();
 		if (m_scareMeter >= 30 && !runaway)
 		{
 			runaway = true;
@@ -169,6 +170,7 @@ public class Customer : MonoBehaviour
 			scale.Active = true;
 			GetComponent<SpriteRenderer>().sortingOrder = -17;
 			transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = -16;
+			transform.GetChild(3).GetComponent<SpriteRenderer>().sortingOrder = -17;
 			scale.AnimateScaleDuration = timeUsed;
 			scale.RemapCurveZero = shelfScale;
 			scale.RemapCurveOne = exitScale;

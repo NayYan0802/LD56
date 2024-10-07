@@ -21,6 +21,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+      propertyPath: frightMeterInRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
       propertyPath: _event.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}

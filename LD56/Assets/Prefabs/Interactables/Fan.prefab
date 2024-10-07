@@ -36,6 +36,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 4.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3257549019062508810, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
       propertyPath: m_Sprite
       value: 

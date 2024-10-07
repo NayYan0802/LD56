@@ -26,9 +26,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     [FoldoutGroup("Turn")] public bool hasAnimation;
     [FoldoutGroup("Turn")] public Sprite Img_On;
     [FoldoutGroup("Turn")] public Sprite Img_Off;
+    [FoldoutGroup("Turn")] public bool hasTurned;
 
 
     [FoldoutGroup("Trigger")] public UnityEvent _event;
+    [FoldoutGroup("Trigger")] public bool hasTriggered;
 
 
     private bool isHiding;
@@ -51,6 +53,8 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         {
             hasAnimation = false;
         }
+        hasTurned = false;
+        hasTriggered = false;
     }
 
     public int GetInteractPriority()
@@ -91,6 +95,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 break;
             case InteractionType.Turn:
                 isOn = !isOn;
+                if (isOn && !hasTurned)
+                {
+                    Scared(transform.position.x);
+                    hasTurned = true;
+                }
                 if (hasAnimation)
                 {
                     animator.SetBool("IsOn", isOn);
@@ -108,7 +117,11 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 }
                 break;
             case InteractionType.Trigger:
-                _event.Invoke();
+                if (!hasTriggered)
+                {
+                    _event.Invoke();
+                    Scared(transform.position.x);
+                }
                 break;
         }        
         return false;
@@ -123,7 +136,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     {
         yield return new WaitForSeconds(fallTime);
         // Trigger fall events
-        Scared(transform.position.x) ;
+        Scared(transform.position.x);
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }

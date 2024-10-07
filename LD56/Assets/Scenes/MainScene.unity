@@ -1260,6 +1260,7 @@ MonoBehaviour:
   hasAnimation: 0
   Img_On: {fileID: 0}
   Img_Off: {fileID: 0}
+  hasTurned: 0
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -1275,8 +1276,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  frightMeterInRange: 0
-  frightMeterOutRange: 0
+  hasTriggered: 0
+  frightMeterInRange: 999
+  frightMeterOutRange: 999
 --- !u!61 &218289406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8718,43 +8720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactbales
       objectReference: {fileID: 0}
-    - target: {fileID: 692138791058966359, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterInRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 692138791058966359, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterOutRange
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1280821749331326354, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
       propertyPath: frightMeterInRange
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1280821749331326354, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterOutRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1602826762534845179, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterInRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1602826762534845179, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterOutRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128561462260434130, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterInRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128561462260434130, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterOutRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885849270945926161, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
-      propertyPath: frightMeterInRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885849270945926161, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
       propertyPath: frightMeterOutRange
       value: 5
       objectReference: {fileID: 0}

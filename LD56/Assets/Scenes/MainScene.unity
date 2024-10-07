@@ -12209,6 +12209,14 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8796329650975479562, guid: c8299df60add92741b99ce5663aad396, type: 3}
+      propertyPath: RoundMinute
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796329650975479562, guid: c8299df60add92741b99ce5663aad396, type: 3}
+      propertyPath: RoundSecond
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796329650975479562, guid: c8299df60add92741b99ce5663aad396, type: 3}
       propertyPath: InteractablesInScene
       value: 
       objectReference: {fileID: 298903330}

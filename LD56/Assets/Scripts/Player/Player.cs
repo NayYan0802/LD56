@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
 	public Transform pickOffset;
     PlayerStateMachine m_playerStateMachine;
-	private float inspectTime = 0;
+	public float inspectTime = 0;
 	[SerializeField] private float inspectMax = 5;
 	Animator animator;
 	[SerializeField] MMF_Player suprisefeedback;
@@ -23,8 +23,7 @@ public class Player : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.tag == "Ladder")
-		{
-			
+		{			
 			m_playerStateMachine.ChangeToLadderState();
 		}
 	}
@@ -43,12 +42,10 @@ public class Player : MonoBehaviour
 		}
 	}
 
-
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.tag == "Ladder")
-		{
-			
+		{			
 			m_playerStateMachine.ChangeToDefaultState();
 		}
 		else if (collision.tag == "Inspector")

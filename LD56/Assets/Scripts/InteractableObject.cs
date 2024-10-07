@@ -92,6 +92,10 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 }
                 break;
             case InteractionType.Turn:
+                if(hasTurned)
+                {
+                    return false;
+                }
                 isOn = !isOn;
                 if (isOn && !hasTurned)
                 {
@@ -119,6 +123,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 {
                     _event.Invoke();
                     Scared(transform.position.x);
+                    hasTriggered = true;
                 }
                 break;
         }        

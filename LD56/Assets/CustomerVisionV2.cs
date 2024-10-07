@@ -21,6 +21,10 @@ public class CustomerVisionV2 : MonoBehaviour
     public Customer customer;
     public SpriteMask visionObject;
 
+    public Vector2 visionHeightLeft;
+    public Vector2 visionHeightCenter;
+    public Vector2 visionHeightRight;
+
     void Start()
     {
         leftPosition = GameObject.Find("Left").transform;
@@ -49,6 +53,9 @@ public class CustomerVisionV2 : MonoBehaviour
         visionObject.enabled = true;
         swayAreaIndex = customer.currentZone;
 
+        isSwaying = true;
+        initialY = player.transform.position.y;
+
         switch (swayAreaIndex)
         {
             case 0:
@@ -61,9 +68,6 @@ public class CustomerVisionV2 : MonoBehaviour
                 MoveToRight();
                 break;
         }
-
-        isSwaying = true;
-        initialY = player.transform.position.y;
     }
 
     [Button]
@@ -76,18 +80,18 @@ public class CustomerVisionV2 : MonoBehaviour
     public void MoveToLeft()
     {
         targetPosition = leftPosition.position;
-        initialY = transform.position.y;
+        initialY = Mathf.Clamp(player.transform.position.y,visionHeightLeft.x, visionHeightLeft.y);
     }
 
     public void MoveToCenter()
     {
         targetPosition = centerPosition.position;
-        initialY = transform.position.y;
+        initialY = Mathf.Clamp(player.transform.position.y,visionHeightCenter.x, visionHeightCenter.y);
     }
 
     public void MoveToRight()
     {
         targetPosition = rightPosition.position;
-        initialY = transform.position.y;
+        initialY = Mathf.Clamp(player.transform.position.y,visionHeightRight.x, visionHeightRight.y);
     }
 }

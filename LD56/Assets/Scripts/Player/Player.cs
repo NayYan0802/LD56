@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 	{
 		if (collision.tag == "Ladder")
 		{
-			animator.SetBool("Climbing", true);
+			
 			m_playerStateMachine.ChangeToLadderState();
 		}
 	}
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 	{
 		if (collision.tag == "Ladder")
 		{
-			animator.SetBool("Climbing", false);
+			
 			m_playerStateMachine.ChangeToDefaultState();
 		}
 		else if (collision.tag == "Inspector")

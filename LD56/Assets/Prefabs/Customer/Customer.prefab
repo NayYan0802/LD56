@@ -185,9 +185,9 @@ MonoBehaviour:
     OnPlay:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1966018679425832971}
-          m_TargetAssemblyTypeName: CustomerVision, Assembly-CSharp
-          m_MethodName: StopSwinging
+        - m_Target: {fileID: 8285933267338104716}
+          m_TargetAssemblyTypeName: CustomerVisionV2, Assembly-CSharp
+          m_MethodName: StopSwaying
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -209,9 +209,9 @@ MonoBehaviour:
     OnComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1966018679425832971}
-          m_TargetAssemblyTypeName: CustomerVision, Assembly-CSharp
-          m_MethodName: StartSwinging
+        - m_Target: {fileID: 8285933267338104716}
+          m_TargetAssemblyTypeName: CustomerVisionV2, Assembly-CSharp
+          m_MethodName: StartSwaying
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -853,8 +853,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8038929258313248494}
   - component: {fileID: 4732167961935854109}
-  - component: {fileID: 1966018679425832971}
   - component: {fileID: 5963059579174456176}
+  - component: {fileID: 8285933267338104716}
   m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
@@ -928,25 +928,6 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
---- !u!114 &1966018679425832971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6968250658222375185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81d4a3891c328f40ad293124fa6aaf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  swingDuration: 10
-  moveRange: 10
-  maxSwingTime: 7
-  playerDistanceThreshold: 10
-  distanceFromEdge: 3
-  restartDelay: 3
 --- !u!58 &5963059579174456176
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -982,3 +963,24 @@ CircleCollider2D:
   m_Offset: {x: 0.00000047683716, y: 0.00000023841858}
   serializedVersion: 2
   m_Radius: 0.50000006
+--- !u!114 &8285933267338104716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968250658222375185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be08840ad3db2a9418110ac08fe344eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPosition: {fileID: 0}
+  centerPosition: {fileID: 0}
+  rightPosition: {fileID: 0}
+  player: {fileID: 0}
+  swayAmplitude: 6
+  swaySpeed: 2
+  swayAreaIndex: 0
+  customer: {fileID: 785257490537987777}
+  visionObject: {fileID: 4732167961935854109}

@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  swingDuration: 5
+  swingDuration: 10
   moveRange: 10
   maxSwingTime: 7
   playerDistanceThreshold: 10

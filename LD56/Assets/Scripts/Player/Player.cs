@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 	public Transform pickOffset;
     PlayerStateMachine m_playerStateMachine;
 	private float inspectTime = 0;
-	[SerializeField]private float inspectMax = 5;
+	[SerializeField] private float inspectMax = 5;
 	Animator animator;
 
 	private void Start()

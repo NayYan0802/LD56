@@ -72,13 +72,19 @@ public class InteractableObject : MonoBehaviour ,IInteractable
             case InteractionType.Hide:
                 if (!isHiding)
                 {
-                    spriteRenderer.sortingOrder = 6;
+                    //spriteRenderer.sortingOrder = 6;
+                    Color color = spriteRenderer.color;
+                    color.a = 0.5f;
+                    spriteRenderer.color = color;
                     PlayerStateMachine.Instance.ChangeToHideState();
                     isHiding = true;
                 }
                 else
                 {
-                    spriteRenderer.sortingOrder = 0;
+                    //spriteRenderer.sortingOrder = 0;
+                    Color color = spriteRenderer.color;
+                    color.a = 1f;
+                    spriteRenderer.color = color;
                     PlayerStateMachine.Instance.SwitchToPreviousState();
                     isHiding = false;
                 }

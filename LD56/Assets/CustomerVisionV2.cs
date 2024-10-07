@@ -25,6 +25,10 @@ public class CustomerVisionV2 : MonoBehaviour
     {
         targetPosition = centerPosition.position;
         initialY = player.transform.position.y;
+        leftPosition = GameObject.Find("Left").transform;
+        centerPosition = GameObject.Find("Center").transform;
+        rightPosition = GameObject.Find("Right").transform;
+        player = GameObject.Find("Player").transform;
     }
 
     void Update()

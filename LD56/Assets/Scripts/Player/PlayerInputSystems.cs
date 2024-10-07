@@ -63,6 +63,11 @@ public class PlayerInputSystems : MonoBehaviour
 		GetComponent<Interact>().InteractWithObject();
 	}
 
+	public void velocityZero()
+	{
+		m_rigidbody2D.velocity = Vector2.zero;
+	}
+
 	public void OnJump()
 	{
 		if (allowJump && !isJumping && !freeze)

@@ -25,6 +25,9 @@ public class GameManagement : MonoBehaviour
 	public int border1;
 	public int border2;
 
+	public GameObject InteractablesInstance;
+	public GameObject InteractablesInScene;
+
 	private void Awake()
 	{
 		Instance = this;
@@ -75,4 +78,11 @@ public class GameManagement : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainScene_MainMenu");
 	}
+
+	[Button]
+	public void ResetInteractables()
+    {
+		Destroy(InteractablesInScene);
+		InteractablesInScene = Instantiate(InteractablesInstance, Vector3.zero, Quaternion.identity);
+    }
 }

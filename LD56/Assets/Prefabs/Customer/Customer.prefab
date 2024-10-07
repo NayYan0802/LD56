@@ -1446,6 +1446,7 @@ MonoBehaviour:
   swayAreaIndex: 0
   customer: {fileID: 785257490537987777}
   visionObject: {fileID: 4732167961935854109}
+  whitelayer: {fileID: 4097159321690285933}
   visionHeightLeft: {x: -9, y: 12.6}
   visionHeightCenter: {x: -3, y: -2}
   visionHeightRight: {x: -2.6, y: 16.4}

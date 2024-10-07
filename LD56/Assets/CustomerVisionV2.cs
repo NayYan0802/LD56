@@ -20,7 +20,7 @@ public class CustomerVisionV2 : MonoBehaviour
 
     public Customer customer;
     public SpriteMask visionObject;
-
+    public SpriteRenderer whitelayer;
     public Vector2 visionHeightLeft;
     public Vector2 visionHeightCenter;
     public Vector2 visionHeightRight;
@@ -51,6 +51,7 @@ public class CustomerVisionV2 : MonoBehaviour
     public void StartSwaying()
     {
         visionObject.enabled = true;
+        whitelayer.enabled = true;
         swayAreaIndex = customer.currentZone;
 
         isSwaying = true;
@@ -74,6 +75,7 @@ public class CustomerVisionV2 : MonoBehaviour
     public void StopSwaying()
     {
         visionObject.enabled = false;
+        whitelayer.enabled = false;
         isSwaying = false;
     }
 

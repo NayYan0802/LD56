@@ -3590,6 +3590,7 @@ MonoBehaviour:
   swayAreaIndex: 0
   customer: {fileID: 0}
   visionObject: {fileID: 594079054}
+  whitelayer: {fileID: 0}
   visionHeightLeft: {x: 0, y: 0}
   visionHeightCenter: {x: 0, y: 0}
   visionHeightRight: {x: 0, y: 0}
@@ -10795,10 +10796,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4732167961935854109, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5977024991586574505, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
       propertyPath: m_Name
       value: Customer
@@ -10806,10 +10803,6 @@ PrefabInstance:
     - target: {fileID: 5977024991586574505, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968250658222375185, guid: 299ada05605ff5c469d7a4ffc1168f9d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

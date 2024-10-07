@@ -71,9 +71,15 @@ public class Customer : MonoBehaviour
 		}
 	}
 
-	public void fail()
+	public void freeze()
 	{
-		StopAllCoroutines();
+		GetComponentInChildren<CustomerVisionV2>().enabled = false;
+		Invoke("fail", 2);
+	}
+
+	private void fail()
+	{
+		StopCoroutine(timeCoroutine);
 		MoveTo(ExitPos);
 	}
 
@@ -159,6 +165,7 @@ public class Customer : MonoBehaviour
 		}
 		if (nextDes == ExitPos)
 		{
+			GetComponentInChildren<CustomerVisionV2>().enabled = true;
 			scale.Active = true;
 			GetComponent<SpriteRenderer>().sortingOrder = -17;
 			transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = -16;

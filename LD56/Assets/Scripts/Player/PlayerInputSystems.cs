@@ -20,6 +20,7 @@ public class PlayerInputSystems : MonoBehaviour
 	Rigidbody2D m_rigidbody2D;
 	Animator animator;
 	SpriteRenderer spriteRenderer;
+	public bool freeze {get; set;}
 
 	private void Start()
     {
@@ -43,7 +44,7 @@ public class PlayerInputSystems : MonoBehaviour
 
 	public void OnJump()
 	{
-		if (allowJump && !isJumping)
+		if (allowJump && !isJumping && !freeze)
 		{
 			isJumping = true;
 			animator.SetTrigger("Jumping");
@@ -84,6 +85,10 @@ public class PlayerInputSystems : MonoBehaviour
 		{
 			isJumping = false;
 			//CameraManager.Instance.isFollowing = true;
+		}
+		if (freeze)
+		{
+			return;
 		}
 		// Use the moveInput to move the player
 		Vector2 move;

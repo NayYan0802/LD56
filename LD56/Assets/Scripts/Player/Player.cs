@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 	Animator animator;
 	[SerializeField] MMF_Player suprisefeedback;
 
+	public GameObject InteractBtn;
+	public GameObject PickBtn;
+
 	private void Start()
 	{
 		GetComponent<Rigidbody2D>().gravityScale = Constant.gravityScale;

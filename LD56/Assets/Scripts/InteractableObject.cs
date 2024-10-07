@@ -167,11 +167,21 @@ public class InteractableObject : MonoBehaviour ,IInteractable
 
     public void OnTargetedEnter()
     {
-
+        Player player = FindFirstObjectByType<Player>();
+        player.InteractBtn.SetActive(true);
+        if (this.GetComponent<PickableObject>())
+        {
+            player.PickBtn.SetActive(true);
+        }
     }
 
     public void OnTargetedExit()
     {
-
+        Player player = FindFirstObjectByType<Player>();
+        player.InteractBtn.SetActive(false);
+        if (this.GetComponent<PickableObject>())
+        {
+            player.PickBtn.SetActive(false);
+        }
     }
 }

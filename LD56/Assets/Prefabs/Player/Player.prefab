@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1073459680311434009}
   - component: {fileID: 861433342859023196}
   - component: {fileID: 6948248314973503741}
+  - component: {fileID: 8009364553380403442}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -393,6 +394,14 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!81 &8009364553380403442
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885367892367517737}
+  m_Enabled: 1
 --- !u!1 &2918464413264262550
 GameObject:
   m_ObjectHideFlags: 0

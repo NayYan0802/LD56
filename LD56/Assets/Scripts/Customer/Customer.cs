@@ -32,6 +32,8 @@ public class Customer : MonoBehaviour
 
 	SpriteRenderer spriteRenderer;
 
+	
+
 	private Vector3 initialPos;
 	private float initialEyePos, initialEyePosFlip;
 	private void Start()
@@ -90,6 +92,9 @@ public class Customer : MonoBehaviour
 		{
 			spriteRenderer.sprite = scared4;
 			spriteRendererEye.enabled = false;
+			StopAllCoroutines();
+			GameManagement.Instance.ScareOnePeople();
+			MoveTo(ExitPos);
 		}
 	}
 
@@ -123,13 +128,11 @@ public class Customer : MonoBehaviour
 		{
 			spriteRenderer.flipX = true;
 			spriteRendererEye.flipX = true;
-			//spriteRendererEye.transform.localPosition = new Vector3(0 - spriteRendererEye.transform.localPosition.x, spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
 		}
 		if (initialPos.x > nextDes.x && spriteRenderer.flipX)
 		{
 			spriteRenderer.flipX = false;
 			spriteRendererEye.flipX = false;
-			//spriteRendererEye.transform.localPosition = new Vector3(0 - spriteRendererEye.transform.localPosition.x, spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
 		}
 		float timeUsed = Vector3.Distance(initialPos, nextDes) / moveSpeed;
 		MMF_Position move = moveFeedback.GetFeedbackOfType<MMF_Position>();

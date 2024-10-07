@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float inspectMax = 5;
 	Animator animator;
 	[SerializeField] MMF_Player suprisefeedback;
+	public bool CanInspect { set; get; }
 
 	public GameObject InteractBtn;
 	public GameObject PickBtn;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 		GetComponent<Rigidbody2D>().gravityScale = Constant.gravityScale;
 		animator = GetComponent<Animator>();
 		m_playerStateMachine = PlayerStateMachine.Instance;
+		CanInspect = true;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -33,13 +35,14 @@ public class Player : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.gameObject.layer == 11)
+		if (collision.gameObject.layer == 11 && CanInspect)
 		{
 			inspectTime += Time.deltaTime;
 			if (inspectTime >= inspectMax)
 			{
 				collision.transform.parent.GetComponent<Customer>().freeze();
 				suprisefeedback.PlayFeedbacks();
+				inspectTime = 0;
 				GameManagement.Instance.ResetInteractables();
 				//player freeze
 			}

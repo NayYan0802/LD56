@@ -17,6 +17,10 @@ PrefabInstance:
       value: 4.7144504
       objectReference: {fileID: 0}
     - target: {fileID: 710688754037499153, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 710688754037499153, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
       propertyPath: m_Offset.x
       value: -0.07999462
       objectReference: {fileID: 0}
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4068899258192408702, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
       propertyPath: m_Name
-      value: Broom Variant
+      value: Broom
       objectReference: {fileID: 0}
     - target: {fileID: 4851430855196113379, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
       propertyPath: m_LocalScale.x
@@ -102,6 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8829234691726326688, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
+    - {fileID: 1038289140972994162, guid: 259e6ddc62581af48bd692cc2a6962c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -8187,10 +8187,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 613725454718212254, guid: c8299df60add92741b99ce5663aad396, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7147456753620760413, guid: c8299df60add92741b99ce5663aad396, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1190.4507
@@ -8239,10 +8235,6 @@ PrefabInstance:
       propertyPath: InteractablesInScene
       value: 
       objectReference: {fileID: 298903330}
-    - target: {fileID: 8796329650975479562, guid: c8299df60add92741b99ce5663aad396, type: 3}
-      propertyPath: InteractablesInstance
-      value: 
-      objectReference: {fileID: 39392339517682016, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

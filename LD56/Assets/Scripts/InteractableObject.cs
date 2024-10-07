@@ -104,9 +104,13 @@ public class InteractableObject : MonoBehaviour ,IInteractable
             case InteractionType.Trigger:
                 _event.Invoke();
                 break;
-        }
-        
+        }        
         return false;
+    }
+
+    public void DirectInteract()
+    {
+        Interact(null);
     }
 
     IEnumerator Fall()

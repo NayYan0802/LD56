@@ -19,7 +19,7 @@ public class CustomerVisionV2 : MonoBehaviour
     public int swayAreaIndex;
 
     public Customer customer;
-    public GameObject visionObject;
+    public SpriteMask visionObject;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class CustomerVisionV2 : MonoBehaviour
     [Button]
     public void StartSwaying()
     {
-        visionObject.SetActive(true);
+        visionObject.enabled = true;
         swayAreaIndex = customer.currentZone;
 
         switch (swayAreaIndex)
@@ -65,7 +65,7 @@ public class CustomerVisionV2 : MonoBehaviour
     [Button]
     public void StopSwaying()
     {
-        visionObject.SetActive(false);
+        visionObject.enabled = false;
         isSwaying = false;
     }
 

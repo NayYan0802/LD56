@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
 			{
 				collision.transform.parent.GetComponent<Customer>().freeze();
 				suprisefeedback.PlayFeedbacks();
+				GameManagement.Instance.ResetInteractables();
 				//player freeze
 			}
 		}

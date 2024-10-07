@@ -69,9 +69,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
             case InteractionType.Push:
                 spriteRenderer.sortingOrder = -1;
                 rb.gravityScale = 1;
-                m_collider.excludeLayers = ~0; // Everything
-
-                StartCoroutine(Fall());
+                m_collider.excludeLayers = ~0 - LayerMask.GetMask("Item"); // Everything
                 break;
             case InteractionType.Hide:
                 if (!isHiding)
@@ -132,16 +130,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
         Interact(null);
     }
 
-    IEnumerator Fall()
-    {
-        yield return new WaitForSeconds(fallTime);
-        // Trigger fall events
-        Scared(transform.position.x);
-        yield return new WaitForSeconds(2);
-        Destroy(this.gameObject);
-    }
-
-    protected void Scared(float posX)
+    public void Scared(float posX)
     {
         int zone;
         if (posX < GameManagement.Instance.border1)

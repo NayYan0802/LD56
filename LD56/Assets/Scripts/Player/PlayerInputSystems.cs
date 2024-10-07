@@ -58,15 +58,21 @@ public class PlayerInputSystems : MonoBehaviour
 		if (!m_pickUp)
 		{
 			currentPickedObject = GetComponent<Interact>().InteractWithPickableObject(player);
-			m_playerStateMachine.ChangeToPickUpState();
-			m_pickUp = true;
+			if (currentPickedObject)
+			{
+				m_playerStateMachine.ChangeToPickUpState();
+				m_pickUp = true;
+			}
 		}
 		else
 		{
-			//put down item
-			GetComponent<Interact>().PutDownObject(currentPickedObject);
-			m_playerStateMachine.ChangeToDefaultState();
-			m_pickUp = false;
+			//put down item	
+			if (currentPickedObject)
+			{
+				m_playerStateMachine.ChangeToDefaultState();
+				GetComponent<Interact>().PutDownObject(currentPickedObject);
+				m_pickUp = false;
+			}
 		}
 	}
 

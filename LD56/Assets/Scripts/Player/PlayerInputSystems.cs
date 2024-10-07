@@ -56,6 +56,10 @@ public class PlayerInputSystems : MonoBehaviour
 
 	public void OnInteract()
 	{
+		if (freeze)
+		{
+			return;
+		}
 		GetComponent<Interact>().InteractWithObject();
 	}
 
@@ -73,6 +77,10 @@ public class PlayerInputSystems : MonoBehaviour
 
 	public void OnPick()
 	{
+		if (freeze)
+		{
+			return;
+		}
 		if (!m_pickUp)
 		{
 			currentPickedObject = GetComponent<Interact>().InteractWithPickableObject(player);

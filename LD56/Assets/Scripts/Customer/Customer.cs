@@ -28,6 +28,7 @@ public class Customer : MonoBehaviour
 	[SerializeField] SpriteRenderer spriteRendererEye;
 	[SerializeField] GameObject eyeView;
 	[SerializeField] MMF_Player suprisefeedback;
+	[SerializeField] MMF_Player sfxScare1feedback, sfxScare2feedback, sfxScare3feedback;
 	public int currentZone;
 	public int m_scareMeter = 0;
 
@@ -40,6 +41,9 @@ public class Customer : MonoBehaviour
 	private float initialEyePos, initialEyePosFlip;
 	private void Start()
 	{
+		sfxScare1feedback = GameObject.Find("SFX Feedbacks/Alert 1 SFX").GetComponent<MMF_Player>();
+		sfxScare2feedback = GameObject.Find("SFX Feedbacks/Alert 2 SFX").GetComponent<MMF_Player>();
+		sfxScare3feedback = GameObject.Find("SFX Feedbacks/Alert 3 SFX").GetComponent<MMF_Player>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initialPos = ExitPos;
 		initialEyePos = spriteRendererEye.transform.localPosition.x;
@@ -90,6 +94,7 @@ public class Customer : MonoBehaviour
 		suprisefeedback.PlayFeedbacks();
 		if (m_scareMeter >= 30 && !runaway)
 		{
+			sfxScare3feedback.PlayFeedbacks();
 			runaway = true;
 			spriteRenderer.sprite = scared4;
 			spriteRendererEye.enabled = false;
@@ -99,11 +104,13 @@ public class Customer : MonoBehaviour
 		}
 		else if (m_scareMeter >= 20)
 		{
+			sfxScare2feedback.PlayFeedbacks();
 			spriteRenderer.sprite = scared3;
 			spriteRendererEye.sprite = scaredEye3;
 		}
 		else if (m_scareMeter >= 10)
 		{
+			sfxScare1feedback.PlayFeedbacks();
 			spriteRenderer.sprite = scared2;
 			spriteRendererEye.sprite = scaredEye2;
 		}

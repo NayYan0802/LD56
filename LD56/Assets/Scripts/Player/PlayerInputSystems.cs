@@ -19,6 +19,7 @@ public class PlayerInputSystems : MonoBehaviour
 	PlayerStateMachine m_playerStateMachine;
 	Rigidbody2D m_rigidbody2D;
 	Animator animator;
+	SpriteRenderer spriteRenderer;
 
 	private void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerInputSystems : MonoBehaviour
 		m_playerStateMachine = PlayerStateMachine.Instance;
 		m_rigidbody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
     public void OnMove(InputValue value)
@@ -82,12 +84,21 @@ public class PlayerInputSystems : MonoBehaviour
 		if (allowMoveVertical)
 		{
 			move = new Vector2(moveInput.x, moveInput.y);
+			
 			m_rigidbody2D.velocity = move * moveSpeed;
 		}
 		else
 		{
 			move = new Vector2(moveInput.x, 0).normalized;
 			m_rigidbody2D.velocity = new Vector2(move.x * moveSpeed, m_rigidbody2D.velocity.y);
+		}
+		if (move.x > 0 && spriteRenderer.flipX)
+		{
+			spriteRenderer.flipX = false;
+		}
+		if (move.x < 0 && !spriteRenderer.flipX)
+		{
+			spriteRenderer.flipX = true;
 		}
 	}
 

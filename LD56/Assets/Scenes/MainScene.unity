@@ -5741,7 +5741,7 @@ GameObject:
   - component: {fileID: 1361166544}
   - component: {fileID: 1361166545}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5804,7 +5804,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8790,6 +8790,34 @@ PrefabInstance:
       propertyPath: frightMeterOutRange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8955872494783355580}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LightSwitch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6061228038710149037, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
       propertyPath: frightMeterInRange
       value: 10
@@ -8855,6 +8883,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+--- !u!114 &8955872494783355580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1796346884163638626, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+  m_PrefabInstance: {fileID: 8955872494783355579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebe3aaae320e3f428c9d33fb6cbf9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

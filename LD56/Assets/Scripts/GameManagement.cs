@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using TMPro;
+using MoreMountains.Tools;
 
 public class GameManagement : MonoBehaviour
 {
@@ -127,5 +128,7 @@ public class GameManagement : MonoBehaviour
     {
 		Destroy(InteractablesInScene);
 		InteractablesInScene = Instantiate(InteractablesInstance, Vector3.zero, Quaternion.identity);
-    }
+		InteractablesInScene.SetActive(true);
+		MMSoundManagerAllSoundsControlEvent.Trigger(MMSoundManagerAllSoundsControlEventTypes.FreeAllButPersistent);
+	}
 }

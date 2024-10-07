@@ -46,8 +46,10 @@ public class Interact : SerializedMonoBehaviour
     {
         if (target == interactTarget)
             return;
-
-        interactTarget?.OnTargetedExit();
+        if (interactTarget as InteractableObject)
+        {
+            interactTarget?.OnTargetedExit();
+        }
 
         interactTarget = target;
         interactTarget?.OnTargetedEnter();

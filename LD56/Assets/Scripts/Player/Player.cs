@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MoreMountains.Feedbacks;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
 	private float inspectTime = 0;
 	[SerializeField] private float inspectMax = 5;
 	Animator animator;
+	[SerializeField] MMF_Player suprisefeedback;
 
 	private void Start()
 	{
@@ -34,11 +36,13 @@ public class Player : MonoBehaviour
 			inspectTime += Time.deltaTime;
 			if (inspectTime >= inspectMax)
 			{
-				collision.transform.parent.GetComponent<Customer>().fail();
+				collision.transform.parent.GetComponent<Customer>().freeze();
+				suprisefeedback.PlayFeedbacks();
 				//player freeze
 			}
 		}
 	}
+
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{

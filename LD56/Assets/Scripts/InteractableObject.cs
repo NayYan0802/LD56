@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -32,6 +33,7 @@ public class InteractableObject : MonoBehaviour ,IInteractable
     [FoldoutGroup("Trigger")] public UnityEvent _event;
     [FoldoutGroup("Trigger")] public bool hasTriggered;
 
+    [FoldoutGroup("Feedbacks")] public MMF_Player pushFB, hideFB, turnFB, triggerFB, loopingFB;
 
     private bool isHiding;
 
@@ -70,6 +72,8 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                 spriteRenderer.sortingOrder = -1;
                 rb.gravityScale = 1;
                 m_collider.excludeLayers = ~0 - LayerMask.GetMask("Item"); // Everything
+                if (pushFB != null)
+                    pushFB.PlayFeedbacks();
                 break;
             case InteractionType.Hide:
                 if (!isHiding)
@@ -90,6 +94,8 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                     PlayerStateMachine.Instance.SwitchToPreviousState();
                     isHiding = false;
                 }
+                if (hideFB != null)
+                    hideFB.PlayFeedbacks();
                 break;
             case InteractionType.Turn:
                 if(hasTurned)
@@ -117,6 +123,8 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                         this.spriteRenderer.sprite = Img_Off;
                     }
                 }
+                if (turnFB != null)
+                    turnFB.PlayFeedbacks();
                 break;
             case InteractionType.Trigger:
                 if (!hasTriggered)
@@ -124,9 +132,13 @@ public class InteractableObject : MonoBehaviour ,IInteractable
                     _event.Invoke();
                     Scared(transform.position.x);
                     hasTriggered = true;
+                    if (triggerFB != null)
+                        triggerFB.PlayFeedbacks();
                 }
                 break;
-        }        
+        }
+        if (loopingFB != null)
+            loopingFB.PlayFeedbacks();     
         return false;
     }
 

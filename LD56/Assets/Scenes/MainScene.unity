@@ -2156,6 +2156,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327812116}
   m_CullTransparentMesh: 1
+--- !u!114 &333512303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 467508979812186587, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+  m_PrefabInstance: {fileID: 844800957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &340027125
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,6 +5465,14 @@ PrefabInstance:
       propertyPath: CanPlayWhileAlreadyPlaying
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7132378045980361771, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+      propertyPath: managedReferences[6438071761393942528].MaxVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132378045980361771, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+      propertyPath: managedReferences[6438071761393942528].MinVolume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7139815789391291199, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
       propertyPath: CanPlayWhileAlreadyPlaying
       value: 0
@@ -8110,6 +8129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c0997284fa355428060b4caec97d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitGroundFB: {fileID: 333512303}
   PuffAnimation: {fileID: 8515305106690261160, guid: 7f009b7e7ab807d4bbcb096ae8bac159, type: 3}
 --- !u!61 &1247143154
 BoxCollider2D:

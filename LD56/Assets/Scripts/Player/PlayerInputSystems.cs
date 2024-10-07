@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
 
 public class PlayerInputSystems : MonoBehaviour
@@ -20,6 +21,9 @@ public class PlayerInputSystems : MonoBehaviour
 	Rigidbody2D m_rigidbody2D;
 	Animator animator;
 	SpriteRenderer spriteRenderer;
+	[SerializeField] MMF_Player walkfeedback;
+	[SerializeField] MMF_Player stopwalkfeedback;
+	[SerializeField] MMF_Player jumpfeedback;
 	public bool freeze {get; set;}
 
 	private void Start()
@@ -35,6 +39,19 @@ public class PlayerInputSystems : MonoBehaviour
     public void OnMove(InputValue value)
 	{
 		moveInput = value.Get<Vector2>();
+	}
+
+	public void OnWalkFeedback()
+	{
+		walkfeedback.PlayFeedbacks();
+	}
+	public void OnStopWalkFeedback()
+	{
+		stopwalkfeedback.PlayFeedbacks();
+	}
+	public void OnJumpFeedback()
+	{
+		jumpfeedback.PlayFeedbacks();
 	}
 
 	public void OnInteract()
@@ -95,12 +112,21 @@ public class PlayerInputSystems : MonoBehaviour
 		if (allowMoveVertical)
 		{
 			move = new Vector2(moveInput.x, moveInput.y);
+			if (move.magnitude >= 0.1f)
+			{
+				walkfeedback.PlayFeedbacks();
+			}
+			else
+			{
+				stopwalkfeedback.PlayFeedbacks();
+			}
 			if (Mathf.Abs(moveInput.y) <= 0.1f)
 			{
 				animator.SetBool("Climbing", false);
 			}
 			else
 			{
+
 				animator.SetBool("Climbing", true);
 			}
 			m_rigidbody2D.velocity = move * moveSpeed;
@@ -108,6 +134,14 @@ public class PlayerInputSystems : MonoBehaviour
 		else
 		{
 			move = new Vector2(moveInput.x, 0).normalized;
+			if (move.magnitude >= 0.1f)
+			{
+				walkfeedback.PlayFeedbacks();
+			}
+			else
+			{
+				stopwalkfeedback.PlayFeedbacks();
+			}
 			m_rigidbody2D.velocity = new Vector2(move.x * moveSpeed, m_rigidbody2D.velocity.y);
 		}
 		if (move.x > 0 && spriteRenderer.flipX)

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float inspectMax = 5;
 	Animator animator;
 	[SerializeField] MMF_Player suprisefeedback;
+
 	public bool CanInspect { set; get; }
 
 	public GameObject InteractBtn;

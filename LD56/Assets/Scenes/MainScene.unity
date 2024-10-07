@@ -2873,21 +2873,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 120614333356293255, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1073459680311434009, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1073459680311434009, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
+    - target: {fileID: 2284451691225368234, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
+      propertyPath: jumpfeedback
+      value: 
+      objectReference: {fileID: 844800962}
+    - target: {fileID: 2284451691225368234, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
+      propertyPath: walkfeedback
+      value: 
+      objectReference: {fileID: 844800964}
+    - target: {fileID: 2284451691225368234, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
+      propertyPath: stopwalkfeedback
+      value: 
+      objectReference: {fileID: 844800963}
     - target: {fileID: 2885367892367517737, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938294013687588389, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4104260291651113898, guid: c9e48bac5a66dee439403bfe284ffed5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5468,6 +5472,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX Feedbacks
       objectReference: {fileID: 0}
+    - target: {fileID: 7132378045980361771, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+      propertyPath: CanPlayWhileAlreadyPlaying
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139815789391291199, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+      propertyPath: CanPlayWhileAlreadyPlaying
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139815789391291199, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+      propertyPath: managedReferences[6438071764665761792].ControlMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9212032595657281178, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9605068
@@ -5549,6 +5565,39 @@ MonoBehaviour:
 --- !u!114 &844800961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 876278780984375807, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+  m_PrefabInstance: {fileID: 844800957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &844800962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8428763702156369589, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+  m_PrefabInstance: {fileID: 844800957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &844800963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7139815789391291199, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
+  m_PrefabInstance: {fileID: 844800957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &844800964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7132378045980361771, guid: 1da7271772dc69c42992c2cbffa4395a, type: 3}
   m_PrefabInstance: {fileID: 844800957}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

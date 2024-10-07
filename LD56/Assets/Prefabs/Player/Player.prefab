@@ -222,6 +222,9 @@ MonoBehaviour:
   allowMoveVertical: 0
   allowJump: 0
   m_pickUp: 0
+  walkfeedback: {fileID: 0}
+  stopwalkfeedback: {fileID: 0}
+  jumpfeedback: {fileID: 0}
 --- !u!114 &9001448116687870224
 MonoBehaviour:
   m_ObjectHideFlags: 0

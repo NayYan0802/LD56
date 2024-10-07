@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene_Bohan_MainMenu.unity
+    path: Assets/Scenes/MainScene_MainMenu.unity
     guid: d9e9df38ca37dde43b616e515b5c52d7
   - enabled: 1
     path: Assets/Scenes/MainScene.unity

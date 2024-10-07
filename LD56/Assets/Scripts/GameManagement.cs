@@ -19,6 +19,8 @@ public class GameManagement : MonoBehaviour
 	[SerializeField, BoxGroup("UI")] GameObject LoseUI;
 	[SerializeField, ReadOnly] private int scareNum = 0;
 
+	List<GameObject> customers = new List<GameObject>();
+
 	[SerializeField] private GameObject CustomerPrefab;
 	public static GameManagement Instance { get; private set; }
 
@@ -35,7 +37,7 @@ public class GameManagement : MonoBehaviour
 
 	private void Start()
 	{
-		
+		spawnCustomer();
 		StartCoroutine(CountDown());
 	}
 
@@ -50,6 +52,11 @@ public class GameManagement : MonoBehaviour
 		}
 	}
 
+	public void popCustomer(GameObject customer)
+	{
+		customers.Remove(customer);
+	}
+
 	IEnumerator CountDown()
 	{
 		while (RoundMinute != 0 || RoundSecond != 0)
@@ -59,8 +66,11 @@ public class GameManagement : MonoBehaviour
 			{
 				RoundMinute--;
 				RoundSecond = 59;
-				GameObject customer = Instantiate(CustomerPrefab);
-				customer.GetComponent<Customer>().type = (CustomerType)Random.Range(0, 3);
+				spawnCustomer();
+			}
+			if (RoundSecond == 30)
+			{
+				spawnCustomer();
 			}
 			if (RoundSecond < 10)
 			{
@@ -74,6 +84,30 @@ public class GameManagement : MonoBehaviour
 		}
 		LoseUI.SetActive(true);
 		//game fail
+	}
+
+	void spawnCustomer()
+	{
+		GameObject customer = Instantiate(CustomerPrefab);
+		customer.GetComponent<Customer>().type = (CustomerType)Random.Range(0, 3);
+		for (int i = -5; i > -15; i -= 2)
+		{
+			foreach (var cus in customers)
+			{
+				if (cus.GetComponent<SpriteRenderer>().sortingOrder == i)
+				{
+					continue;
+				}
+				else
+				{
+					customer.GetComponent<SpriteRenderer>().sortingOrder = i;
+					customer.transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = i + 1;
+					break;
+				}
+			}
+		}
+
+		customers.Add(customer);
 	}
 
 	public void Retry()

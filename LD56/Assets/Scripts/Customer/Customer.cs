@@ -160,6 +160,8 @@ public class Customer : MonoBehaviour
 		if (nextDes == ExitPos)
 		{
 			scale.Active = true;
+			GetComponent<SpriteRenderer>().sortingOrder = -17;
+			transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = -16;
 			scale.AnimateScaleDuration = timeUsed;
 			scale.RemapCurveZero = shelfScale;
 			scale.RemapCurveOne = exitScale;
@@ -227,6 +229,7 @@ public class Customer : MonoBehaviour
 
 	public void SelfDestory()
 	{
+		GameManagement.Instance.popCustomer(gameObject);
 		Destroy(gameObject);
 	}
 }

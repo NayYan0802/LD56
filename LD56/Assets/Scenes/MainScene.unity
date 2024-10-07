@@ -8726,6 +8726,78 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactbales
       objectReference: {fileID: 0}
+    - target: {fileID: 692138791058966359, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 692138791058966359, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280821749331326354, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280821749331326354, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602826762534845179, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602826762534845179, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128561462260434130, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128561462260434130, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885849270945926161, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885849270945926161, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884555305056893810, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884555305056893810, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614176685708231071, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614176685708231071, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638942416324234529, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061228038710149037, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061228038710149037, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8259279016469222251, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8769,6 +8841,14 @@ PrefabInstance:
     - target: {fileID: 8371675586384781413, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869535237431823507, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterInRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869535237431823507, guid: 791c0b0d1215ca84ba00d3a59f0f1acd, type: 3}
+      propertyPath: frightMeterOutRange
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

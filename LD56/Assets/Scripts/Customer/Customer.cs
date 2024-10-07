@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
 
-enum CustomerType { 
+public enum CustomerType { 
 	GrandPa,
 	Student,
 	RepairGuy
@@ -16,7 +16,7 @@ public class Customer : MonoBehaviour
 	[SerializeField] float initialDis= 50;
 	[SerializeField] float moveSpeed = 0.2f;
 	[SerializeField, Tooltip("percentage of possibility customer go to his favor spot, only 0-1, percentage for other two area is equal")] float favorSpotPercentage = 0.7f;
-	[SerializeField] CustomerType type;
+	[SerializeField] public CustomerType type;
 	[SerializeField] Vector3 GroceriesPos, SnackPos, ToolsPos, ExitPos;
 	[SerializeField] float exitScale, shelfScale;
 	[SerializeField] float PosOffsetx;
@@ -28,11 +28,12 @@ public class Customer : MonoBehaviour
 	[SerializeField] SpriteRenderer spriteRendererEye;
 	[SerializeField] GameObject eyeView;
 	public int currentZone;
-	public int scareMeter = 0;
+	public int m_scareMeter = 0;
 
+	bool runaway;
 	SpriteRenderer spriteRenderer;
 
-	
+	Coroutine timeCoroutine = null;
 
 	private Vector3 initialPos;
 	private float initialEyePos, initialEyePosFlip;
@@ -42,7 +43,7 @@ public class Customer : MonoBehaviour
 		initialPos = ExitPos;
 		initialEyePos = spriteRendererEye.transform.localPosition.x;
 		initialEyePosFlip = 0 - initialEyePos;
-		StartCoroutine(Timer());
+		timeCoroutine = StartCoroutine(Timer());
 	}
 
 	private void Update()
@@ -78,29 +79,31 @@ public class Customer : MonoBehaviour
 
 	public void Scared(int scareMeter)
     {
-		scareMeter += scareMeter;
-		if (scareMeter >= 0)
+		m_scareMeter += scareMeter;
+
+		if (m_scareMeter >= 30 && !runaway)
 		{
-			spriteRenderer.sprite = scared1;
-			spriteRendererEye.sprite = scaredEye1;
+			runaway = true;
+			spriteRenderer.sprite = scared4;
+			spriteRendererEye.enabled = false;
+			StopCoroutine(timeCoroutine);
+			GameManagement.Instance.ScareOnePeople();
+			MoveTo(ExitPos);
 		}
-		if (scareMeter >= 10)
-		{
-			spriteRenderer.sprite = scared2;
-			spriteRendererEye.sprite = scaredEye2;
-		}
-		else if (scareMeter >= 20)
+		else if (m_scareMeter >= 20)
 		{
 			spriteRenderer.sprite = scared3;
 			spriteRendererEye.sprite = scaredEye3;
 		}
-		else if (scareMeter >= 30)
+		else if (m_scareMeter >= 10)
 		{
-			spriteRenderer.sprite = scared4;
-			spriteRendererEye.enabled = false;
-			StopAllCoroutines();
-			GameManagement.Instance.ScareOnePeople();
-			MoveTo(ExitPos);
+			spriteRenderer.sprite = scared2;
+			spriteRendererEye.sprite = scaredEye2;
+		}
+		else if (m_scareMeter > 0)
+		{
+			spriteRenderer.sprite = scared1;
+			spriteRendererEye.sprite = scaredEye1;
 		}
 	}
 

@@ -59,7 +59,8 @@ public class GameManagement : MonoBehaviour
 			{
 				RoundMinute--;
 				RoundSecond = 59;
-				Instantiate(CustomerPrefab);
+				GameObject customer = Instantiate(CustomerPrefab);
+				customer.GetComponent<Customer>().type = (CustomerType)Random.Range(0, 3);
 			}
 			if (RoundSecond < 10)
 			{

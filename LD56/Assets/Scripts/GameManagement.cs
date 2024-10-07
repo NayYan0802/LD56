@@ -38,7 +38,6 @@ public class GameManagement : MonoBehaviour
 
 	private void Start()
 	{
-		spawnCustomer();
 		StartCoroutine(CountDown());
 	}
 

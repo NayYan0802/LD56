@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: Bodega Bandi
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5536992948e78f439753af6c5e70d7e, type: 2}
   m_sharedMaterial: {fileID: -6736103961191895240, guid: c5536992948e78f439753af6c5e70d7e, type: 2}

@@ -6,6 +6,7 @@ public class LightSwitch : MonoBehaviour
 {
     public new InteractableObject light;
     public SpriteRenderer shadow;
+    public float lightDuration = 10f;
 
     private void Start()
     {
@@ -25,6 +26,16 @@ public class LightSwitch : MonoBehaviour
             Color color = shadow.color;
             color.a = 0.75f;
             shadow.color = color;
+            Invoke("ResetLight", lightDuration);
         }
+    }
+
+    public void ResetLight()
+    {
+        Color color = shadow.color;
+        color.a = 0.25f;
+        shadow.color = color;
+        light.isOn = true;
+        light.hasTurned = false;
     }
 }

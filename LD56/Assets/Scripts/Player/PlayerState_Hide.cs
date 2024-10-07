@@ -13,6 +13,9 @@ public class PlayerState_Hide : PlayerState_Base
 		Color color = m_playerInputSystems.GetComponent<SpriteRenderer>().color;
 		color.a = 0.5f;
 		m_playerInputSystems.GetComponent<SpriteRenderer>().color = color;
+
+		m_playerInputSystems.GetComponent<Rigidbody2D>().excludeLayers += LayerMask.GetMask("Inspector");
+
 		base.EnterState(stateMachineContext);
 	}
 
@@ -23,6 +26,7 @@ public class PlayerState_Hide : PlayerState_Base
 		m_playerInputSystems.GetComponent<SpriteRenderer>().color = color;
 
 		m_playerInputSystems.GetComponent<EdgeCollider2D>().excludeLayers = 0;
+		m_playerInputSystems.GetComponent<Rigidbody2D>().excludeLayers -= LayerMask.GetMask("Inspector");
 		base.ExitState(stateMachineContext);
 	}
 }

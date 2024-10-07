@@ -18,6 +18,7 @@ public class PlayerState_Ladder : PlayerState_Base
 
 	public override void ExitState(StateMachine stateMachineContext)
 	{
+		m_playerInputSystems.GetComponent<Animator>().SetBool("Climbing", false);
 		LayerMask mask = 0;
 		m_playerInputSystems.GetComponent<EdgeCollider2D>().excludeLayers = mask;
 		m_playerInputSystems.gameObject.layer = 9;

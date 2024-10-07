@@ -29,11 +29,12 @@ public class Player : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.tag == "Inspector")
+		if (collision.gameObject.layer == 11)
 		{
 			inspectTime += Time.deltaTime;
 			if (inspectTime >= inspectMax)
-			{ 
+			{
+				collision.transform.parent.GetComponent<Customer>().fail();
 				//player freeze
 			}
 		}

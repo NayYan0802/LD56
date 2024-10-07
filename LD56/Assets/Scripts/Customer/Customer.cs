@@ -70,6 +70,12 @@ public class Customer : MonoBehaviour
 		}
 	}
 
+	public void fail()
+	{
+		StopAllCoroutines();
+		MoveTo(ExitPos);
+	}
+
 	public void Scared(int scareMeter)
     {
 		scareMeter += scareMeter;

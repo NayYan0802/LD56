@@ -818,7 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalDis: 5
   initialDis: 50
-  moveSpeed: 10
+  moveSpeed: 7
   favorSpotPercentage: 0.6
   type: 1
   GroceriesPos: {x: -20.2, y: -2.4, z: 5}
@@ -854,7 +854,8 @@ GameObject:
   - component: {fileID: 8038929258313248494}
   - component: {fileID: 4732167961935854109}
   - component: {fileID: 1966018679425832971}
-  m_Layer: 0
+  - component: {fileID: 5963059579174456176}
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,3 +947,38 @@ MonoBehaviour:
   playerDistanceThreshold: 10
   distanceFromEdge: 3
   restartDelay: 3
+--- !u!58 &5963059579174456176
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968250658222375185}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000047683716, y: 0.00000023841858}
+  serializedVersion: 2
+  m_Radius: 0.50000006

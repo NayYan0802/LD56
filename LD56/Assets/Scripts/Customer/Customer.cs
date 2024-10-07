@@ -20,20 +20,26 @@ public class Customer : MonoBehaviour
 	[SerializeField] Vector3 GroceriesPos, SnackPos, ToolsPos, ExitPos;
 	[SerializeField] float exitScale, shelfScale;
 	[SerializeField] float PosOffsetx;
+	[SerializeField] float eyeMax;
 	[SerializeField] int StayTimeMin, StayTimeMax;
-	[SerializeField] Sprite frightened1, frightened2, frightened3;
+	[SerializeField] Sprite scared1, scared2, scared3, scared4;
+	[SerializeField] Sprite scaredEye1, scaredEye2, scaredEye3;
 	[SerializeField] MMF_Player moveFeedback;
-
+	[SerializeField] SpriteRenderer spriteRendererEye;
+	[SerializeField] GameObject eyeView;
 	public int currentZone;
 	public int scareMeter = 0;
 
 	SpriteRenderer spriteRenderer;
 
 	private Vector3 initialPos;
+	private float initialEyePos, initialEyePosFlip;
 	private void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initialPos = ExitPos;
+		initialEyePos = spriteRendererEye.transform.localPosition.x;
+		initialEyePosFlip = 0 - initialEyePos;
 		StartCoroutine(Timer());
 	}
 
@@ -51,22 +57,39 @@ public class Customer : MonoBehaviour
 		{
 			currentZone = 1;
 		}
+		if (spriteRendererEye.flipX)
+		{
+			spriteRendererEye.transform.localPosition = new Vector3(initialEyePosFlip + eyeMax * ((eyeView.transform.position.x - transform.position.x) / 13), spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
+		}
+		else
+		{
+			spriteRendererEye.transform.localPosition = new Vector3(initialEyePos + eyeMax * ((eyeView.transform.position.x - transform.position.x) / 13), spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
+
+		}
 	}
 
 	public void Scared(int scareMeter)
     {
 		scareMeter += scareMeter;
+		if (scareMeter >= 0)
+		{
+			spriteRenderer.sprite = scared1;
+			spriteRendererEye.sprite = scaredEye1;
+		}
 		if (scareMeter >= 10)
 		{
-			spriteRenderer.sprite = frightened1;
+			spriteRenderer.sprite = scared2;
+			spriteRendererEye.sprite = scaredEye2;
 		}
 		else if (scareMeter >= 20)
 		{
-			spriteRenderer.sprite = frightened2;
+			spriteRenderer.sprite = scared3;
+			spriteRendererEye.sprite = scaredEye3;
 		}
 		else if (scareMeter >= 30)
 		{
-			spriteRenderer.sprite = frightened3;
+			spriteRenderer.sprite = scared4;
+			spriteRendererEye.enabled = false;
 		}
 	}
 
@@ -99,10 +122,14 @@ public class Customer : MonoBehaviour
 		if (initialPos.x < nextDes.x && !spriteRenderer.flipX)
 		{
 			spriteRenderer.flipX = true;
+			spriteRendererEye.flipX = true;
+			//spriteRendererEye.transform.localPosition = new Vector3(0 - spriteRendererEye.transform.localPosition.x, spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
 		}
 		if (initialPos.x > nextDes.x && spriteRenderer.flipX)
 		{
 			spriteRenderer.flipX = false;
+			spriteRendererEye.flipX = false;
+			//spriteRendererEye.transform.localPosition = new Vector3(0 - spriteRendererEye.transform.localPosition.x, spriteRendererEye.transform.localPosition.y, spriteRendererEye.transform.localPosition.z);
 		}
 		float timeUsed = Vector3.Distance(initialPos, nextDes) / moveSpeed;
 		MMF_Position move = moveFeedback.GetFeedbackOfType<MMF_Position>();

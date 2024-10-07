@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -13,6 +14,9 @@ public class GameManagement : MonoBehaviour
 	[SerializeField, BoxGroup("UI")] TMP_Text UITime;
 	[SerializeField, BoxGroup("UI")] Image[] PeopleIndicators;
 	[SerializeField, BoxGroup("UI")] Sprite NumberMeter_Full;
+
+	[SerializeField, BoxGroup("UI")] GameObject WinUI;
+	[SerializeField, BoxGroup("UI")] GameObject LoseUI;
 	[SerializeField, ReadOnly] private int scareNum = 0;
 
 	[SerializeField] private GameObject CustomerPrefab;
@@ -37,7 +41,8 @@ public class GameManagement : MonoBehaviour
 		scareNum++;
 		PeopleIndicators[scareNum - 1].sprite = NumberMeter_Full;
 		if (scareNum >= 3)
-		{ 
+		{
+			WinUI.SetActive(true);
 			//game success
 		}
 	}
@@ -56,6 +61,18 @@ public class GameManagement : MonoBehaviour
 			UITime.text = $"{RoundMinute} : {RoundSecond}";
 			yield return new WaitForSeconds(1f);
 		}
+		LoseUI.SetActive(true);
 		//game fail
+	}
+
+	public void Retry()
+	{
+		Scene scene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(scene.name);
+	}
+
+	public void BackToMenu()
+	{
+		SceneManager.LoadScene("MainScene_MainMenu");
 	}
 }

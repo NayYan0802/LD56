@@ -1,5 +1,89 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &716592059190532731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1577534474186198855}
+  - component: {fileID: 431944346434119902}
+  m_Layer: 0
+  m_Name: CustomerEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1577534474186198855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716592059190532731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.91, y: 2.083, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4055636513810164815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &431944346434119902
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716592059190532731}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 32c2d8d68fbddd048ad10ecf78f21c77, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &5045504557829068727
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +749,7 @@ Transform:
   m_Children:
   - {fileID: 8038929258313248494}
   - {fileID: 7393025521828309678}
+  - {fileID: 1577534474186198855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2932784440424683903
@@ -708,7 +793,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79829457a17d1264bb415d2d850c4230, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd607675f95b50b47b81b56595fdba29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -743,12 +828,19 @@ MonoBehaviour:
   exitScale: 1.7
   shelfScale: 2.5
   PosOffsetx: 9
+  eyeMax: 0.07
   StayTimeMin: 10
   StayTimeMax: 15
-  frightened1: {fileID: 21300000, guid: 3580d2b8783647848ad70c5e07e81a79, type: 3}
-  frightened2: {fileID: 21300000, guid: 5c218674424a404428482fdf10e1562d, type: 3}
-  frightened3: {fileID: 21300000, guid: 8749cc08194c74341a3bc72a9755d298, type: 3}
+  scared1: {fileID: 21300000, guid: ca9c6fd79286fe444a121fd0cfb7c9cf, type: 3}
+  scared2: {fileID: 21300000, guid: c6031798c7eddc845b393e4da0244579, type: 3}
+  scared3: {fileID: 21300000, guid: 81f9027deec7ee74e8ad779193327611, type: 3}
+  scared4: {fileID: 21300000, guid: de17cf94ccd83244195d038f8b663ad2, type: 3}
+  scaredEye1: {fileID: 21300000, guid: 81c500ec6c748e54d9643a2bba4e7e9b, type: 3}
+  scaredEye2: {fileID: 21300000, guid: 025458b1f6c265542a532731fa5d15a5, type: 3}
+  scaredEye3: {fileID: 21300000, guid: 34ec92ad0e4c7154d8c136b6bc5b5e4a, type: 3}
   moveFeedback: {fileID: 2616195607736720026}
+  spriteRendererEye: {fileID: 431944346434119902}
+  eyeView: {fileID: 6968250658222375185}
   currentZone: 0
   scareMeter: 0
 --- !u!1 &6968250658222375185

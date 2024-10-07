@@ -61,7 +61,14 @@ public class GameManagement : MonoBehaviour
 				RoundSecond = 59;
 				Instantiate(CustomerPrefab);
 			}
-			UITime.text = $"{RoundMinute} : {RoundSecond}";
+			if (RoundSecond < 10)
+			{
+				UITime.text = $"{RoundMinute} : 0{RoundSecond}";
+			}
+			else
+			{
+				UITime.text = $"{RoundMinute} : {RoundSecond}";
+			}
 			yield return new WaitForSeconds(1f);
 		}
 		LoseUI.SetActive(true);

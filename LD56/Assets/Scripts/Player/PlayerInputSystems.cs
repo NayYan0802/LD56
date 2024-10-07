@@ -84,7 +84,14 @@ public class PlayerInputSystems : MonoBehaviour
 		if (allowMoveVertical)
 		{
 			move = new Vector2(moveInput.x, moveInput.y);
-			
+			if (Mathf.Abs(moveInput.y) <= 0.1f)
+			{
+				animator.SetBool("Climbing", false);
+			}
+			else
+			{
+				animator.SetBool("Climbing", true);
+			}
 			m_rigidbody2D.velocity = move * moveSpeed;
 		}
 		else

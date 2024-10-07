@@ -185,9 +185,9 @@ MonoBehaviour:
     OnPlay:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CustomerVision, Assembly-CSharp
-          m_MethodName: StopSwinging
+        - m_Target: {fileID: 8285933267338104716}
+          m_TargetAssemblyTypeName: CustomerVisionV2, Assembly-CSharp
+          m_MethodName: StopSwaying
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -209,9 +209,9 @@ MonoBehaviour:
     OnComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CustomerVision, Assembly-CSharp
-          m_MethodName: StartSwinging
+        - m_Target: {fileID: 8285933267338104716}
+          m_TargetAssemblyTypeName: CustomerVisionV2, Assembly-CSharp
+          m_MethodName: StartSwaying
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -979,8 +979,8 @@ MonoBehaviour:
   centerPosition: {fileID: 0}
   rightPosition: {fileID: 0}
   player: {fileID: 0}
-  swayAmplitude: 1
+  swayAmplitude: 6
   swaySpeed: 2
   swayAreaIndex: 0
-  customer: {fileID: 0}
-  visionObject: {fileID: 0}
+  customer: {fileID: 785257490537987777}
+  visionObject: {fileID: 4732167961935854109}

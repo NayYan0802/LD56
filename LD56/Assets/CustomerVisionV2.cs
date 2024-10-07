@@ -23,12 +23,12 @@ public class CustomerVisionV2 : MonoBehaviour
 
     void Start()
     {
-        targetPosition = centerPosition.position;
-        initialY = player.transform.position.y;
         leftPosition = GameObject.Find("Left").transform;
         centerPosition = GameObject.Find("Center").transform;
         rightPosition = GameObject.Find("Right").transform;
         player = GameObject.Find("Player").transform;
+        targetPosition = centerPosition.position;
+        initialY = player.transform.position.y;
     }
 
     void Update()
